@@ -1,22 +1,24 @@
 {% set name = "wibl-python" %}
-{% set version = "1.1.0" %}
-{% set python_min = "3.9" %}
+{% set version = "1.2.0" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/CCOMJHC/WIBL/archive/refs/tags/{{ name }}-{{ version }}.tar.gz
-  sha256: 3243a97b9b38c0a7270e09e70890cc006d7eb40f605ef259f3ced81c51f10974
+  url: https://github.com/CCOMJHC/WIBL/archive/refs/heads/release-wibl-python-1.2.0.tar.gz
+  sha256: e248fdc1727526620d6b015dbb0a401bfef3f9e90059e4dbcfb68463d8fde305
 
 build:
   entry_points:
-    - wibl = wibl.command.__main__:main
+    - wibl = wibl.command:cli
   noarch: python
-  script: |
-    {{ PYTHON }} -m pip install ./wibl-python/wibl-manager
-    {{ PYTHON }} -m pip install ./wibl-python -vv
+  script:
+    - {{ PYTHON }} -m pip install ./wibl-python/wibl-manager
+    - {{ PYTHON }} -m pip install ./wibl-python -vv
+    - mkdir -p ${PREFIX}/share
+    - cp ./wibl-python/scripts/data-management/*.ps1 ${PREFIX}/share/
   number: 0
 
 requirements:
@@ -30,14 +32,16 @@ requirements:
     - gdal
     - matplotlib-base
     - boto3 ~=1.20
-    - requests ~=2.31.0
+    - requests ~=2.32.4
     - numpy >=1.23.5
     - pynmea2 ~=1.18
     - pygmt ~=0.10.0
     - rasterio ~=1.3.0
-    - geopandas
-    - deepmerge
+    - click~=8.2.1
     - dataclasses-json ~=0.5.7
+    - deepmerge
+    - geopandas
+    - geoalchemy2
 test:
   imports:
     - wibl
