@@ -17,8 +17,8 @@ build:
   script:
     - {{ PYTHON }} -m pip install ./wibl-python/wibl-manager
     - {{ PYTHON }} -m pip install ./wibl-python -vv
-    - mkdir -p ${PREFIX}/share
-    - cp ./wibl-python/scripts/data-management/*.ps1 ${PREFIX}/share/
+    - mkdir -p ${PREFIX}/share/wibl-python
+    - cp ./wibl-python/scripts/data-management/*.ps1 ${PREFIX}/share/wibl-python
   number: 0
 
 requirements:
