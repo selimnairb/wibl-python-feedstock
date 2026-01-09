@@ -8,17 +8,18 @@ package:
 
 source:
   url: https://github.com/CCOMJHC/WIBL/archive/refs/heads/release-wibl-python-1.2.0.tar.gz
+  # TODO: Revert to this after GitHub release has been created
+  # url: https://github.com/CCOMJHC/WIBL/archive/refs/tags/{{ name }}-{{ version }}.tar.gz
+  # TODO: Update hash after GitHub release has been created
   sha256: e248fdc1727526620d6b015dbb0a401bfef3f9e90059e4dbcfb68463d8fde305
 
 build:
   entry_points:
     - wibl = wibl.command:cli
   noarch: python
-  script:
-    - {{ PYTHON }} -m pip install ./wibl-python/wibl-manager
-    - {{ PYTHON }} -m pip install ./wibl-python -vv
-    - mkdir -p ${PREFIX}/share/wibl-python
-    - cp ./wibl-python/scripts/data-management/*.ps1 ${PREFIX}/share/wibl-python
+  script: |
+    {{ PYTHON }} -m pip install ./wibl-python/wibl-manager
+    {{ PYTHON }} -m pip install ./wibl-python -vv
   number: 0
 
 requirements:
