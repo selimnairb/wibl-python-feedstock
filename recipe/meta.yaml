@@ -51,7 +51,7 @@ test:
     - wibl --help
 
 about:
-  home: https://github.com/CCOMJHC/WIBL/tree/wibl-python-1.1.0/wibl-python
+  home: https://github.com/CCOMJHC/WIBL/tree/{{ name }}-{{ version }}/wibl-python
   summary: 'Python tools for WIBL low-cost data logger system.'
   description: |
     Python tools for WIBL low-cost data logger system. For more information on WIBL.
