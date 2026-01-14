@@ -7,11 +7,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/CCOMJHC/WIBL/archive/refs/heads/release-wibl-python-1.2.0.tar.gz
-  # TODO: Revert to this after GitHub release has been created
-  # url: https://github.com/CCOMJHC/WIBL/archive/refs/tags/{{ name }}-{{ version }}.tar.gz
-  # TODO: Update hash after GitHub release has been created
-  sha256: e248fdc1727526620d6b015dbb0a401bfef3f9e90059e4dbcfb68463d8fde305
+  url: https://github.com/CCOMJHC/WIBL/archive/refs/tags/{{ name }}-{{ version }}.tar.gz
+  sha256: 7c30fbb4733ae8f5b2fa5280842acc6ca59fcdf8b69e241571af970a70e00433
 
 build:
   entry_points:
